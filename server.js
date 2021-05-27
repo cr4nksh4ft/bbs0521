@@ -46,7 +46,9 @@ app.get('/add-user',(req,res)=>{
 })
 
 //dummy obj to simulate real data
-
+app.get("/",(req,res)=>{
+  res.redirect("/home");
+})
 app.get('/home',(req,res)=>{
   res.render('home');
 })
