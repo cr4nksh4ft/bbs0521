@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>TBI | Home</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <%- include('./partials/navbar.ejs') %>
+    <div id="heading">
+      <h1 class="about">TBI Bank</h1>
+      <h1 class="about">The merchant you trust.</h1>
+    </div>
+    <div id="cards">
+      <img id="img1" src="/images/secure.png" alt="">
+      <img id="img2" src="/images/rupee.png" alt="">
+      <img id="img3" src="/images/transfer.png" alt="gold">
+    </div>
+  </body>
+</html>

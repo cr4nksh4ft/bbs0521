@@ -1,0 +1,37 @@
+body{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  background-image: url("/images/blue.webp");
+}
+
+#heading{
+  border:1px solid black;
+  margin-top:20px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+.about{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: xx-large;
+}
+#img1{
+  height:45vh;
+  width:15vw;
+  padding-left: 30px;
+}
+#img2{
+  height:40vh;
+  width:20vw;
+}
+#img3{
+  height:40vh;
+  width:20vw;
+  padding-right: 30px;
+}
+#cards{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

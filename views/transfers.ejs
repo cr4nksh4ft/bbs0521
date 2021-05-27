@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/transfers.css">
+  </head>
+  <body>
+    <%- include('./partials/navbardark.ejs') %>
+
+  <div id="container">
+    <div id="lid">
+      <h2 id="heading">Details</h2>
+    </div>
+
+  <form action="/transfers" method="POST">
+
+    <div id="senderdiv">
+      <label for="sender"> Sender :</label>
+      <select name="sender" id="sender">
+          <option value=<%=senderId%> > <%=senderName%> </option>
+      </select>
+    </div>
+
+    <div id="recepientdiv">
+      <label for="recepient"> Choose a recepient :</label>
+      <select name="recepient" id="recepient">
+        <% customers.forEach(customer=>{ %>
+          <option value=<%=customer.id%> > <%=customer.name%> </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <br><br>
+    <div id="amountdiv">
+      <label for="amount">Amount (0-<%=limit%>):</label>
+      <input type="number" id="amount" name="amount" min="0" max="<%=limit%>" required>
+    </div>
+
+    <br><br>
+
+      <input id="submitbutton" type="submit" value="Submit">
+
+
+  </form>
+</div>
+  </body>
+</html>

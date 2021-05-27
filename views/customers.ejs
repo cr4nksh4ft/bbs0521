@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/customers.css">
+  </head>
+  <body>
+    <%- include('./partials/navbardark.ejs') %>
+    <div id="container">
+    <div id="lid">
+      <h1 id="heading">Customers</h1>
+    </div>
+    <% if(customers.length>0){ %>
+      <% customers.forEach((customer) => { %>
+        <div class="customer">
+          <p class="customername"> <strong><%= customer.name %></strong></p>
+          <p style="padding-right: 10px;"><a href="\customers\<%=customer.id%>" class="button">View</a></p>
+        </div>
+      <% }) %>
+    <% } %>
+    </div>
+  </body>
+</html>

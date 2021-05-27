@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/customer.css">
+  </head>
+  <body>
+    <%- include('./partials/navbardark.ejs') %>
+    <div class="container">
+      <div class="lid">
+        <h2 id="heading">Details</h2>
+      </div>
+      <div class="details">
+        <hr>
+        <p class="fld">Name: <span class="val"><%=customer.name%></span></p>
+        <p class="fld">Email: <span class="val"><%=customer.email%></span></p>
+        <p class="fld">Current Balance: <span class="val">&#8377;<%=customer.balance%></span></p>
+        <div id="button-enclosure">
+          <a href="\transfers\<%=customer.id%>" id="button">Send Money</a>
+        </div>
+        </div>
+
+    </div>
+  </body>
+</html>
