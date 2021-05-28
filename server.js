@@ -29,30 +29,17 @@ mongoose.connect(dbURI,{useNewUrlParser:true, useUnifiedTopology:true})
 })
 
 
-//temporary
-app.get('/add-user',(req,res)=>{
-  const customer = new Customer({
-    name : 'Lorem Ipsum',
-    email : 'loremipsum@bmail.com',
-    balance : 4000
-  })
-  customer.save()
-  .then((result)=>{
-    res.send(result)
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
-})
 
-//dummy obj to simulate real data
 app.get("/",(req,res)=>{
   res.redirect("/home");
 })
+
+//HOME
 app.get('/home',(req,res)=>{
   res.render('home');
 })
 
+//CUSTOMERS
 app.get('/customers',(req,res)=>{
   //get all customers
   Customer.find()
@@ -62,21 +49,21 @@ app.get('/customers',(req,res)=>{
   .catch((err)=>{
     console.log(err)
   })
-  //res.render('customers',{customers:result);
 })
 
-//'/customers/:id'
+//CUSTOMER
 app.get('/customers/:id',(req,res)=>{
   id = req.params.id
   Customer.findById(id)
   .then((result)=>{
-    //console.log("Customer found")
     res.render('customer',{customer:result});
   })
   .catch((err)=>{
     console.log(err)
   })
 })
+
+//MONEY TRANSFER
 app.get('/transfers/:id',(req,res)=> {
   //show available recepients except the sender itself
   senderId = req.params.id
@@ -98,6 +85,7 @@ app.get('/transfers/:id',(req,res)=> {
   })
 })
 
+//TRANSFER OPERATION
 app.post('/transfers',(req,res)=> {
   let senderId = req.body.sender
   let receiverId = req.body.recepient
@@ -111,7 +99,6 @@ app.post('/transfers',(req,res)=> {
     doc.save()
     .then((updated_doc)=>{
       console.log("Amount deducted successfully")
-      //console.log(updated_doc)
     })
     .catch((err)=>{
       console.log("Deduction unsuccessful")
@@ -130,9 +117,8 @@ app.post('/transfers',(req,res)=> {
     doc.save()
     .then((updated_doc)=>{
       console.log("Amount added successfully")
-      //console.log(updated_doc)
-      //TRANSACTION
 
+      //TRANSACTION
       const transaction = new Transaction({
         sender_id : senderId,
         receiver_id : receiverId,
@@ -160,16 +146,15 @@ app.post('/transfers',(req,res)=> {
     console.log("Cannot find receiver")
     console.log(err)
   })
-  //------------------------------------------
+})
 
-  //let ids=[req.body.sender,req.body.recepient]
+//ABOUT
 app.get('/about',(req,res)=>{
   res.render('about')
 })
 
-})
-
+//404 PAGE
 app.use((req,res)=>{
-  res.status(404).render('generic',{val: "404"})
+  res.status(404).render('generic',{val: "PAGE NOT FOUND"})
 
 })

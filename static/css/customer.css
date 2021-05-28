@@ -23,10 +23,7 @@ body{
   height:50px;
 }
 
-#details{
-  font-weight: bold;
-  padding-left: 20px;
-}
+
 .fld{
   padding-left: 20px;
   border:none;
@@ -58,6 +55,9 @@ body{
   text-transform: uppercase;
   padding: 0.5em 1.5em;
   margin:auto;
+}
+#button:hover{
+    background-color:	#484848;
 }
 #heading{
   font-family: helvetica;

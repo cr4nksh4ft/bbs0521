@@ -10,25 +10,6 @@ body{
 
 }
 
-#grid-container{
-  display: grid;
-  grid-template-columns: auto auto;
-  background-color: #1cef5b;
-  padding: 10px;
-  border-radius: 10px;
-  width: 35%;
-  box-shadow: 20px 20px rgba(240,248,255,0.8);
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  margin: 2% auto auto auto;
-}
-
-.grid-item{
-  color:#f0f8ff;
-  font-size: 5vw;
-}
-
 #container{
   position: relative;
   top: 50%;
@@ -49,7 +30,6 @@ body{
   font-weight: bold;
   text-align: left;
 }
-
 
 img{
   width:200px;
