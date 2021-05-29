@@ -1,7 +1,5 @@
 const express = require('express')
 const app = express();
-const fs = require('fs')
-const _ = require('lodash')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const Customer = require('./models/customer')
@@ -64,7 +62,7 @@ app.get('/customers/:id',(req,res)=>{
 })
 
 //MONEY TRANSFER
-app.get('/transfers/:id',(req,res)=> {
+app.get('/transfer/:id',(req,res)=> {
   //show available recepients except the sender itself
   senderId = req.params.id
   Customer.findById(senderId)
@@ -73,7 +71,7 @@ app.get('/transfers/:id',(req,res)=> {
        max_transfer = result.balance;
        Customer.find({ "email": { "$ne": result.email }})
        .then((result)=>{
-         res.render("transfers",{senderName,senderId,limit:max_transfer,customers:result})
+         res.render("transfer",{senderName,senderId,limit:max_transfer,customers:result})
        })
        .catch((err)=>{
          console.log("Error in finding potential recepients");
@@ -86,7 +84,7 @@ app.get('/transfers/:id',(req,res)=> {
 })
 
 //TRANSFER OPERATION
-app.post('/transfers',(req,res)=> {
+app.post('/transfer',(req,res)=> {
   let senderId = req.body.sender
   let receiverId = req.body.recepient
   let amount = req.body.amount
@@ -146,6 +144,18 @@ app.post('/transfers',(req,res)=> {
     console.log("Cannot find receiver")
     console.log(err)
   })
+})
+
+//TRANSFERS
+app.get('/transfers',(req,res)=>{
+  Transaction.find()
+  .then((result)=>{
+    res.render('transfers',{transfers:result})
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+
 })
 
 //ABOUT

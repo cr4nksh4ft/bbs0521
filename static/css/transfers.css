@@ -4,78 +4,52 @@ body{
   margin:0;
   padding:0;
   box-sizing: border-box;
-  background-image: url("/images/transfers.jpg");
+
   background-size: cover;
-  background-position:center;
+  background-position:bottom;
 }
+
 #container{
   border: 2px solid black;
-  margin:100px auto auto auto;
-  width : 40vw;
+  margin:30px auto auto auto;
+  width:-moz-fit-content;
+  width:fit-content;
+  display : flex;
+  flex-direction: column;
 }
-#lid{
-  display: flex;
-  background-color: black;
-  color:white;
-  height:50px;
-  margin-bottom: 10px;
-}
-#heading{
 
+#lid{
+  display:flex;
+  height : 50px;
+  background-color: black;
+  border: 1px;
+  color:white;
+}
+
+#heading{
   font-family: helvetica;
   margin:auto;
 }
-form{
-  display:grid;
-  justify-content: center;
-  row-gap : 20px;
-  grid-template-columns: 50% 50%;
-  border : 1px black;
-  margin:auto;
-  width: 40vw;
-}
-label{
-  font-weight: bold;
-}
 
-select{
-  height:2.5em;
-  width:10em;
-  border: 1px solid black;
-  border-radius: 16px;
-}
-#senderdiv{
+table{
   margin:auto;
 }
 
-#recepientdiv{
-  margin:auto;
+th{
+  font-size: 1.7vw;
+  background-color: #b2dd8b;
 }
 
-#amountdiv{
-  grid-column-end: span 2;
-  margin: auto;
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
-#amount{
-  height:2em;
-  width:10em;
-  border: 1px solid black;
-  border-radius: 16px;
+td{
+  font-size: 1.5vw;
 }
 
-
-#submitbutton{
-  grid-column-end: span 2;
-  width:20%;
-  height:70%;
-  margin:auto auto 20px auto;
-  background-color: black;
-  border:none;
-  cursor: pointer;
-  border-radius: 16px;
-  color: white;
-}
-#submitbutton:hover{
-      background-color:	#484848;
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
