@@ -4,8 +4,8 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const Customer = require('./models/customer')
 const Transaction = require('./models/transaction')
-
-const dbURI = 'mongodb+srv://evaluator:evaluator0521@bbs.xpe7d.mongodb.net/basic_banking_system?retryWrites=true&w=majority'
+//Database Connection URL
+const dbURI = ''
 
 app.set('view engine','ejs');
 
